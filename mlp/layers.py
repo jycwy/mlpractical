@@ -394,9 +394,13 @@ class RandomReluLayer(Layer):
         """Forward propagates activations through the layer transformation.
         For inputs `x` and outputs `y` this corresponds to `y = ..., else`.
         """
-        #self.alpha = self.rng.uniform(low=self.lower, high=self.upper, size=inputs.shape)
-        self.alpha = leakiness
-        outputs = np.where(inputs <= 0,  self.alpha * inputs, inputs)
+        if leakiness is not None:
+            self.alpha = leakiness
+            outputs = np.where(inputs <= 0, self.alpha * inputs, inputs)
+        else:
+            self.alpha = self.rng.uniform(low=self.lower, high=self.upper, size=inputs.shape)
+            outputs = np.where(inputs <= 0, self.alpha * inputs, inputs)
+
         return outputs
 
     def bprop(self, inputs, outputs, grads_wrt_outputs):
@@ -446,8 +450,9 @@ class ParametricReluLayer(LayerWithParameters):
             list of arrays of gradients with respect to the layer parameters
             `[grads_wrt_params]`. Where params is the alpha parameter.
         """
-        grads_wrt_weights = grads_wrt_outputs * inputs
-        return [grads_wrt_outputs]
+        gradients = np.where(inputs <= 0, inputs, 0) * grads_wrt_outputs
+        grads_wrt_alpha = np.sum(gradients)
+        return [grads_wrt_alpha]
 
     @property
     def params(self):

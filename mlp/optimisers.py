@@ -115,7 +115,7 @@ class Optimiser(object):
             ', '.join(['{}={:.2e}'.format(k, v) for (k, v) in stats.items()])
         ))
 
-    def train(self, num_epochs, stats_interval=5):
+    def train(self, num_epochs, stats_interval=5, early_stopping=False):
         """Trains a model for a set number of epochs.
 
         Args:
@@ -133,6 +133,10 @@ class Optimiser(object):
         run_stats = [list(self.get_epoch_stats().values())]
         with self.tqdm_progress(total=num_epochs) as progress_bar:
             progress_bar.set_description("Exp Prog")
+
+            min_loss = 100000
+            wet_up_num = 0
+
             for epoch in range(1, num_epochs + 1):
                 start_time = time.time()
                 self.do_training_epoch()
@@ -140,9 +144,20 @@ class Optimiser(object):
                 if epoch % stats_interval == 0:
                     stats = self.get_epoch_stats()
                     self.log_stats(epoch, epoch_time, stats)
+                    if early_stopping:
+                        if min_loss < stats['error(valid)']:
+                            wet_up_num +=1
+                        else:
+                            min_loss = stats['error(valid)']
+                            wet_up_num = 0
+                        if wet_up_num > 3:
+                            print("Early Stopping")
+                            break
+
                     run_stats.append(list(stats.values()))
                 progress_bar.update(1)
         finish_train_time = time.time()
         total_train_time = finish_train_time - start_train_time
+        print("Total Train Time: "+ str(total_train_time))
         return np.array(run_stats), {k: i for i, k in enumerate(stats.keys())}, total_train_time
 
