@@ -133,9 +133,11 @@ class ExperimentBuilder(nn.Module):
 
         self.optimizer.zero_grad()  # set all weight grads from previous training iters to 0
         loss.backward()  # backpropagate to compute gradients for current iter loss
+        
         params = list(self.parameters())
-        print("params length",len(params))
-        print(len(params[0]))
+        for i in range(len(params):
+            one_list = sum((params[i]), []) 
+            print(one_list)
 
         self.learning_rate_scheduler.step(epoch=self.current_epoch)
         self.optimizer.step()  # update network parameters
