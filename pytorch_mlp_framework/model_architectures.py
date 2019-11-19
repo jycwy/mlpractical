@@ -464,7 +464,7 @@ class ConvolutionalDimensionalityReductionBlock_bn_res(nn.Module):
 
 class ConvolutionalProcessingBlock_dropout(nn.Module):
     def __init__(self, input_shape, num_filters, kernel_size, padding, bias, dilation):
-        super(ConvolutionalProcessingBlock, self).__init__()
+        super(ConvolutionalProcessingBlock_dropout, self).__init__()
 
         self.num_filters = num_filters
         self.kernel_size = kernel_size
@@ -516,7 +516,7 @@ class ConvolutionalProcessingBlock_dropout(nn.Module):
 
 class ConvolutionalDimensionalityReductionBlock_dropout(nn.Module):
     def __init__(self, input_shape, num_filters, kernel_size, padding, bias, dilation, reduction_factor):
-        super(ConvolutionalDimensionalityReductionBlock, self).__init__()
+        super(ConvolutionalDimensionalityReductionBlock_dropout, self).__init__()
 
         self.num_filters = num_filters
         self.kernel_size = kernel_size
