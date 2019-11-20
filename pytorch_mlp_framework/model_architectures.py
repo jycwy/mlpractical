@@ -454,7 +454,6 @@ class ConvolutionalDimensionalityReductionBlock_bn_res(nn.Module):
 
         out = self.layer_dict['conv_1'].forward(out)
         out = self.layer_dict['bn_1'].forward(out)
-        out = out + x
         out = F.leaky_relu(out)
         
         return out
