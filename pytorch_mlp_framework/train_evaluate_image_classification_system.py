@@ -45,7 +45,6 @@ if args.block_type == 'conv_block':
 elif args.block_type == 'conv_bn_block':
     processing_block_type = ConvolutionalProcessingBlock_bn
     dim_reduction_block_type = ConvolutionalDimensionalityReductionBlock_bn
-<<<<<<< HEAD
 elif args.block_type == 'conv_res_block':
     processing_block_type = ConvolutionalProcessingBlock_res
     dim_reduction_block_type = ConvolutionalDimensionalityReductionBlock_res
@@ -55,8 +54,6 @@ elif args.block_type == 'conv_bn_res_block':
 elif args.block_type == 'conv_dropout_block':
     processing_block_type = ConvolutionalProcessingBlock_dropout
     dim_reduction_block_type = ConvolutionalDimensionalityReductionBlock_dropout     
-=======
->>>>>>> 420aa5f752399c4236096ce7a9ac8e81f5726530
 elif args.block_type == 'empty_block':
     processing_block_type = EmptyBlock
     dim_reduction_block_type = EmptyBlock
