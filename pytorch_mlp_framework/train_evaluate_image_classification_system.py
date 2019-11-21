@@ -14,8 +14,8 @@ torch.manual_seed(seed=args.seed)  # sets pytorch's seed
 
 # set up data augmentation transforms for training and testing
 transform_train = transforms.Compose([
-        #transforms.RandomCrop(32, padding=4),
-        transforms.RandomHorizontalFlip(),
+        transforms.RandomCrop(32, padding=4),
+        #transforms.RandomHorizontalFlip(),
         #transforms.RandomRotation(60),
         #transforms.Grayscale(3),
         transforms.ToTensor(),
