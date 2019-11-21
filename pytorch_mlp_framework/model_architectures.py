@@ -504,7 +504,7 @@ class ConvolutionalProcessingBlock_dropout(nn.Module):
         out = self.layer_dict['conv_0'].forward(out)
         self.layer_dict['bn_0'] =nn.BatchNorm2d(out.shape[1])
         out = self.layer_dict['bn_0'].forward(out)
-        self.layer_dict['drop_0']= nn.Dropout(0.2)
+        self.layer_dict['drop_0']= nn.Dropout(0.4)
         out =self.layer_dict['drop_0'].forward(out)
         out = F.leaky_relu(out)        
 	
@@ -516,7 +516,7 @@ class ConvolutionalProcessingBlock_dropout(nn.Module):
         out = self.layer_dict['conv_1'].forward(out)
         self.layer_dict['bn_1'] =nn.BatchNorm2d(out.shape[1])
         out = self.layer_dict['bn_1'].forward(out)
-        self.layer_dict['drop_1']= nn.Dropout(0.2)
+        self.layer_dict['drop_1']= nn.Dropout(0.4)
         out =self.layer_dict['drop_1'].forward(out)
         out = F.leaky_relu(out)
         
@@ -572,7 +572,7 @@ class ConvolutionalDimensionalityReductionBlock_dropout(nn.Module):
         out = self.layer_dict['conv_0'].forward(out)
         self.layer_dict['bn_0'] =nn.BatchNorm2d(out.shape[1])
         out = self.layer_dict['bn_0'].forward(out)
-        self.layer_dict['drop_0']= nn.Dropout(0.2)
+        self.layer_dict['drop_0']= nn.Dropout(0.4)
         out =self.layer_dict['drop_0'].forward(out)
         out = F.leaky_relu(out)
         
@@ -587,7 +587,7 @@ class ConvolutionalDimensionalityReductionBlock_dropout(nn.Module):
         out = self.layer_dict['conv_1'].forward(out)
         self.layer_dict['bn_1'] =nn.BatchNorm2d(out.shape[1])
         out = self.layer_dict['bn_1'].forward(out)
-        self.layer_dict['drop_1']= nn.Dropout(0.2)
+        self.layer_dict['drop_1']= nn.Dropout(0.4)
         out =self.layer_dict['drop_1'].forward(out)
         out = F.leaky_relu(out)
         
