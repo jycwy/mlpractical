@@ -260,11 +260,7 @@ class ConvolutionalProcessingBlock_bn(nn.Module):
                                               padding=self.padding, stride=1)
 
         out = self.layer_dict['conv_0'].forward(out)
-<<<<<<< HEAD
         self.layer_dict['bn_0'] =nn.BatchNorm2d(out.shape[1])
-=======
-        self.layer_dict['bn_0'] =nn.BatchNorm2d(out_channels=self.num_filters)
->>>>>>> 420aa5f752399c4236096ce7a9ac8e81f5726530
         out = self.layer_dict['bn_0'].forward(out)
         out = F.leaky_relu(out)
 
@@ -273,11 +269,7 @@ class ConvolutionalProcessingBlock_bn(nn.Module):
                                               padding=self.padding, stride=1)
 
         out = self.layer_dict['conv_1'].forward(out)
-<<<<<<< HEAD
         self.layer_dict['bn_1'] =nn.BatchNorm2d(out.shape[1])
-=======
-        self.layer_dict['bn_1'] =nn.BatchNorm2d(out_channels=self.num_filters)
->>>>>>> 420aa5f752399c4236096ce7a9ac8e81f5726530
         out = self.layer_dict['bn_1'].forward(out)
         out = F.leaky_relu(out)
 
@@ -320,11 +312,7 @@ class ConvolutionalDimensionalityReductionBlock_bn(nn.Module):
                                               padding=self.padding, stride=1)
 
         out = self.layer_dict['conv_0'].forward(out)
-<<<<<<< HEAD
         self.layer_dict['bn_0'] =nn.BatchNorm2d(out.shape[1])
-=======
-        self.layer_dict['bn_0'] =nn.BatchNorm2d(out_channels=self.num_filters)
->>>>>>> 420aa5f752399c4236096ce7a9ac8e81f5726530
         out = self.layer_dict['bn_0'].forward(out)
         out = F.leaky_relu(out)
 
@@ -335,11 +323,7 @@ class ConvolutionalDimensionalityReductionBlock_bn(nn.Module):
                                               padding=self.padding, stride=1)
 
         out = self.layer_dict['conv_1'].forward(out)
-<<<<<<< HEAD
         self.layer_dict['bn_1'] =nn.BatchNorm2d(out.shape[1])
-=======
-        self.layer_dict['bn_1'] =nn.BatchNorm2d(out_channels=self.num_filters)
->>>>>>> 420aa5f752399c4236096ce7a9ac8e81f5726530
         out = self.layer_dict['bn_1'].forward(out)
         out = F.leaky_relu(out)
 
@@ -361,7 +345,6 @@ class ConvolutionalDimensionalityReductionBlock_bn(nn.Module):
         return out
 
 
-<<<<<<< HEAD
 
 
 
@@ -747,8 +730,7 @@ class ConvolutionalDimensionalityReductionBlock_res(nn.Module):
 
 
 
-=======
->>>>>>> 420aa5f752399c4236096ce7a9ac8e81f5726530
+
 class ConvolutionalNetwork(nn.Module):
     def __init__(self, input_shape, num_output_classes, num_filters,
                  num_blocks_per_stage, num_stages, use_bias=False, processing_block_type=ConvolutionalProcessingBlock,
