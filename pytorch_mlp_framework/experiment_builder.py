@@ -133,7 +133,7 @@ class ExperimentBuilder(nn.Module):
 
         self.optimizer.zero_grad()  # set all weight grads from previous training iters to 0
         loss.backward()  # backpropagate to compute gradients for current iter loss
-<<<<<<< HEAD
+
         
         """
         params = list(self.parameters())
@@ -142,9 +142,7 @@ class ExperimentBuilder(nn.Module):
             print(one_list)
         """
         
-=======
 
->>>>>>> 420aa5f752399c4236096ce7a9ac8e81f5726530
         self.learning_rate_scheduler.step(epoch=self.current_epoch)
         self.optimizer.step()  # update network parameters
         _, predicted = torch.max(out.data, 1)  # get argmax of predictions
