@@ -440,7 +440,7 @@ class ConvolutionalDimensionalityReductionBlock_bn_res(nn.Module):
         out = self.layer_dict['conv_0'].forward(out)
         self.layer_dict['bn_0'] =nn.BatchNorm2d(out.shape[1])
         out = self.layer_dict['bn_0'].forward(out)
-	out = F.leaky_relu(out)
+        out = F.leaky_relu(out)
 
         out = F.avg_pool2d(out, self.reduction_factor)
 	
