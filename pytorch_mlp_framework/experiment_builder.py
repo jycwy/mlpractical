@@ -135,12 +135,12 @@ class ExperimentBuilder(nn.Module):
         loss.backward()  # backpropagate to compute gradients for current iter loss
 
         
-        """
+      
         params = list(self.parameters())
+        print("gradients")
         for i in range(len(params)):
-            one_list = sum((params[i]), []) 
-            print(one_list)
-        """
+            print(params[i].grad)
+       
         
 
         self.learning_rate_scheduler.step(epoch=self.current_epoch)
