@@ -6,6 +6,7 @@ import tqdm
 import os
 import numpy as np
 import time
+from statistics import mean 
 
 from pytorch_mlp_framework.storage_utils import save_statistics
 
