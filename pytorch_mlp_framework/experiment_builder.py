@@ -139,7 +139,7 @@ class ExperimentBuilder(nn.Module):
         params = list(self.parameters())
         print("gradients")
         for i in range(len(params)):
-            print(params[i].grad)
+            print(mean(params[i].grad))
        
         
 
