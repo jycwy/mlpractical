@@ -6,7 +6,6 @@ import tqdm
 import os
 import numpy as np
 import time
-from statistics import mean 
 
 from pytorch_mlp_framework.storage_utils import save_statistics
 
@@ -140,7 +139,9 @@ class ExperimentBuilder(nn.Module):
         params = list(self.parameters())
         print("gradients")
         for i in range(len(params)):
-            print(mean(params[i].grad))
+            print("layer ", i)
+            print(torch.mean(params[i].grad))
+            print(torch.var(params[i].grad))
        
         
 
